@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+
+# Every path (including Meta's /checkout redirect) goes to the checkout
+# function, which runs the server in ../../server.js.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/checkout"
+  status = 200
