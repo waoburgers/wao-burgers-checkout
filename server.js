@@ -46,7 +46,11 @@ const ORDER_PAGE = 'https://www.waoburger.com/s/order';
 // ---------------------------------------------------------------------------
 // Mapping: Meta product ID / retailer_id -> product + Square order link.
 // ---------------------------------------------------------------------------
-const mapping = JSON.parse(
+// Serverless wrappers (Netlify) may run from a bundle where the JSON file
+// isn't on disk; they can inject the parsed mapping via
+// global.__WAO_MAPPING__ before requiring this module. Otherwise read it
+// from disk as usual.
+const mapping = global.__WAO_MAPPING__ || JSON.parse(
   fs.readFileSync(path.join(__dirname, 'meta-to-square-mapping.json'), 'utf8')
 );
 
