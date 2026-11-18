@@ -1,0 +1,1 @@
+{"description":"Meta Shops website-checkout endpoint for WAO Burgers — redirects buyers to a real Square checkout with the cart pre-filled.","engines":{"node":">=18"},"main":"server.js","name":"wao-burgers-checkout","version":"1.0.0"}
