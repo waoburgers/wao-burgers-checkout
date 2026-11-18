@@ -1,6 +1,12 @@
 [build]
   functions = "netlify/functions"
 
+# Ship the product mapping on disk too (server.js reads it via fs). The
+# function also injects it via global.__WAO_MAPPING__ as a fallback for
+# bundled deploys — see netlify/functions/checkout.js.
+[functions]
+  included_files = ["meta-to-square-mapping.json"]
+
 # Every path (including Meta's /checkout redirect) goes to the checkout
 # function, which runs the server in ../../server.js.
 [[redirects]]
